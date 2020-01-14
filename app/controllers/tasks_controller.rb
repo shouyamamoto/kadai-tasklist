@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
   # before_action は、アクションが実行される前に、前もって実行すべきメソッドを指定できます。
   # only: [...] によって、set_message を前もって実行するアクション一覧を指定している。
-  
-  before_action :set_task, only: [:show, :edit, :uptate, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
     @tasks = Task.all
