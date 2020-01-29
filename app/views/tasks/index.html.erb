@@ -1,8 +1,8 @@
 <% if logged_in? %>
-      <%= render 'tasks/tasks', tasks: @tasks %>
+  <%= render 'tasks/tasks', tasks: @tasks %>
 <% else %>
-    <h1>Welcome to the Tasklist!</h1>
-      <%= link_to 'Sign up now!', signup_path %>
+  <h1>Welcome to the Tasklist!</h1>
+  <%= link_to 'Sign up now!', signup_path %>
 <% end %>
 
 <%= link_to '新規タスクの登録', new_task_path %>

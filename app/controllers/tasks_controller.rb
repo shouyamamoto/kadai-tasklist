@@ -2,15 +2,14 @@ class TasksController < ApplicationController
   # before_action は、アクションが実行される前に、前もって実行すべきメソッドを指定できます。
   # only: [...] によって、set_message を前もって実行するアクション一覧を指定している。
   
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :require_user_logged_in
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
     @tasks = current_user.tasks.order(id: :desc).page(params[:page])
   end
   
   def show
-
   end
   
   def create
@@ -21,7 +20,7 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'タスクの投稿に失敗しました。'
-      render 'tasks/index'
+      render 'tasks/new'
     end
   end
   
